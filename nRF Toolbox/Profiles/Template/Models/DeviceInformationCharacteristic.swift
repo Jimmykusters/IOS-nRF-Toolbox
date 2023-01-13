@@ -31,17 +31,21 @@
 
 
 import Foundation
-import CoreBluetooth
 
-extension PeripheralDescription {
-    static let healthTemperature = PeripheralDescription(uuid: CBUUID.Profile.healthTemperature, services: [.battery, .measurement, .deviceInformation], mandatoryServices: [CBUUID.Service.healthTemperature], mandatoryCharacteristics: [CBUUID.Characteristics.HealthTemperature.measurement])
+struct ModelNumberCharacteristic {
+    let ModelNumberString: String
+    
+    init(with data: Data) throws {
+        let ModelNumberStringValue: Int8 = try data.read()
+        ModelNumberString = String(ModelNumberStringValue)
+    }
 }
 
-private extension PeripheralDescription.Service {
-    static let measurement = PeripheralDescription.Service(uuid: CBUUID.Service.healthTemperature, characteristics: [
-        Characteristic(uuid: CBUUID.Characteristics.HealthTemperature.measurement, properties: .notify(true))
-    ])
-    static let deviceInformation = PeripheralDescription.Service(uuid: CBUUID.Service.deviceInformation, characteristics: [
-        Characteristic(uuid: CBUUID.Characteristics.DeviceInformation.ModelNumberString, properties: .notify(true)),
-    ])
+struct ManufacturerNameCharacteristic {
+    let ManufacturerNameString: String
+    
+    init(with data: Data) throws {
+        let ManufacturerNameStringValue: Int8 = try data.read()
+        ManufacturerNameString = String(ManufacturerNameStringValue)
+    }
 }

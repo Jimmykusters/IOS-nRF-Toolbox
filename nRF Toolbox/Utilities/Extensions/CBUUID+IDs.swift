@@ -56,11 +56,17 @@ extension CBUUID {
         static let bloodPressureMonitor = CBUUID(string: "00001810-0000-1000-8000-00805F9B34FB")
         static let healthTemperature = CBUUID(string: "00001809-0000-1000-8000-00805F9B34FB")
         static let heartRateSensor = CBUUID(string: "0000180D-0000-1000-8000-00805F9B34FB")
+        static let deviceInformation = CBUUID(string: "0000180A-0000-1000-8000-00805F9B34FB")
     }
     
     struct Characteristics {
         struct Battery {
             static let batteryLevel = CBUUID(string: "00002A19-0000-1000-8000-00805F9B34FB")
+        }
+        
+        struct DeviceInformation {
+            static let ModelNumberString = CBUUID(string: "00002A24-0000-1000-8000-00805F9B34FB")
+            static let ManufacturerNameStrring = CBUUID(string: "00002A29-0000-1000-8000-00805F9B34FB")
         }
         
         struct BloodGlucoseMonitor {

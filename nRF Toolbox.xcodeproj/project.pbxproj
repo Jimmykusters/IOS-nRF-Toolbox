@@ -276,6 +276,8 @@
 		C3E8C1AE26F21FE4000A3737 /* FilterSwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3E8C1AD26F21FE3000A3737 /* FilterSwitchView.xib */; };
 		CC7B90D148FC21C73B54BFAB /* NumberFormatter+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B93FA695799F95D065492 /* NumberFormatter+Ext.swift */; };
 		CC7B91DDFD7EF39F27FEC85A /* CommandImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7B95845343A3D826B220D5 /* CommandImage.swift */; };
+		E0F21A30296B0FD500BDB752 /* DeviceInformationCharacteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F21A2F296B0FD500BDB752 /* DeviceInformationCharacteristic.swift */; };
+		E0F21A32296B119D00BDB752 /* DeviceInformationSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F21A31296B119D00BDB752 /* DeviceInformationSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -577,6 +579,8 @@
 		C3E8C1AD26F21FE3000A3737 /* FilterSwitchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterSwitchView.xib; sourceTree = "<group>"; };
 		CC7B93FA695799F95D065492 /* NumberFormatter+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+Ext.swift"; sourceTree = "<group>"; };
 		CC7B95845343A3D826B220D5 /* CommandImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandImage.swift; sourceTree = "<group>"; };
+		E0F21A2F296B0FD500BDB752 /* DeviceInformationCharacteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInformationCharacteristic.swift; sourceTree = "<group>"; };
+		E0F21A31296B119D00BDB752 /* DeviceInformationSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInformationSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1121,6 +1125,7 @@
 			isa = PBXGroup;
 			children = (
 				2013650123462DB900C5AF1F /* BatteryCharacteristic.swift */,
+				E0F21A2F296B0FD500BDB752 /* DeviceInformationCharacteristic.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1390,6 +1395,7 @@
 				20D08E27232B940400569587 /* OptionSelectionSection.swift */,
 				203D0F0B232FB7D100C0340D /* DetailsTableViewSection.swift */,
 				339763237234E5CAE47F8DBB /* ChartDataSection.swift */,
+				E0F21A31296B119D00BDB752 /* DeviceInformationSection.swift */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -1818,11 +1824,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Nordic Semiconductor";
 				TargetAttributes = {
 					5217F3E11859EE0000F2D5BB = {
-						DevelopmentTeam = P3R8YQEV4L;
 						LastSwiftMigration = 1030;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -2041,6 +2046,7 @@
 				20D08E02232A38C200569587 /* TitledError.swift in Sources */,
 				4350CFFD244D109B0068EEEA /* ProximityBluetoothManager.swift in Sources */,
 				01AA707D24124F270018DB29 /* DFUUpdateTabBarViewController.swift in Sources */,
+				E0F21A32296B119D00BDB752 /* DeviceInformationSection.swift in Sources */,
 				20C7FE53230E811B00B06FD8 /* ServiceProvider.swift in Sources */,
 				20C7FE5E230EC37000B06FD8 /* ServiceTableViewCell.swift in Sources */,
 				C39941C227352FC600E7AA33 /* ZephyrPacket.swift in Sources */,
@@ -2058,6 +2064,7 @@
 				20D08E04232A4A3600569587 /* SelectionsTableViewController.swift in Sources */,
 				436C0AD02456FD3300B03B61 /* ModernIcon+Const.swift in Sources */,
 				20C7FE5B230EAD0000B06FD8 /* UINavigationController+Ext.swift in Sources */,
+				E0F21A30296B0FD500BDB752 /* DeviceInformationCharacteristic.swift in Sources */,
 				20F0C8062327D439003111E7 /* BatterySection.swift in Sources */,
 				5231403222FB1E130074325A /* UIColor+Nordic.swift in Sources */,
 				30A1145A1CD2426B000F0F02 /* ScannerDelegate.swift in Sources */,
@@ -2226,7 +2233,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -2246,7 +2253,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
-				ENABLE_BITCODE = YES;
+				DEVELOPMENT_TEAM = 7B779E38LM;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2255,7 +2263,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nRF Toolbox/nRF Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "nRF Toolbox/nRF Toolbox-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2272,7 +2280,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D BETA";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nRF-Toolbox-beta";
+				PRODUCT_BUNDLE_IDENTIFIER = "nRF-Toolbox-beta";
 				PRODUCT_NAME = "$(TARGET_NAME) Beta";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -2335,7 +2343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "";
 				PROVISIONING_PROFILE = "";
@@ -2389,7 +2397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -2411,7 +2419,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
-				ENABLE_BITCODE = YES;
+				DEVELOPMENT_TEAM = 7B779E38LM;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2420,7 +2429,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nRF Toolbox/nRF Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "nRF Toolbox/nRF Toolbox-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2437,7 +2446,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D RAND";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nRF-Toolbox-debug";
+				PRODUCT_BUNDLE_IDENTIFIER = nRFToolboxdebug;
 				PRODUCT_NAME = "$(TARGET_NAME) Debug";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -2460,7 +2469,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
-				ENABLE_BITCODE = YES;
+				DEVELOPMENT_TEAM = 7B779E38LM;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2469,7 +2479,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "nRF Toolbox/nRF Toolbox-Prefix.pch";
 				INFOPLIST_FILE = "nRF Toolbox/nRF Toolbox-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2486,7 +2496,7 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.nordicsemi.nRF-Toolbox";
+				PRODUCT_BUNDLE_IDENTIFIER = nRFToolboxJimmy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -2511,6 +2521,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = P3R8YQEV4L;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2549,6 +2560,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P3R8YQEV4L;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2585,6 +2597,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P3R8YQEV4L;
+				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2671,7 +2684,7 @@
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
 				kind = exactVersion;
-				version = 4.0.1;
+				version = 4.1.0;
 			};
 		};
 		C3EFCAEE27A943EE00BFE8C4 /* XCRemoteSwiftPackageReference "IOS-DFU-Library" */ = {

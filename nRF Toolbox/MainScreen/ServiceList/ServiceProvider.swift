@@ -64,8 +64,8 @@ struct DefaultServiceProvider: ServiceProvider {
         let links: [LinkService] = DefaultServiceProvider.loadServicesFromFile("Links")
         return [
             ServiceSection(title: "Bluetooth Services", services: bleServices),
-            ServiceSection(title: "Utils Services", services: utilsServices),
-            ServiceSection(title: "Links", services: links)
+//            ServiceSection(title: "Utils Services", services: utilsServices),
+//            ServiceSection(title: "Links", services: links)
         ]
     }()
     

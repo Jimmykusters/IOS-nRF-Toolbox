@@ -33,18 +33,18 @@
 import UIKit
 
 enum ServiceId: String, CaseIterable {
-    case glucoseMonitoring
-    case bloodPressureMonitoring
-    case cyclingSensor
-    case heartRateMonitor
+//    case glucoseMonitoring
+//    case bloodPressureMonitoring
+//    case cyclingSensor
+//    case heartRateMonitor
     case healthThermometer
-    case runningSensor
-    case continuousGlucoseMonitor
-    case uart
+//    case runningSensor
+//    case continuousGlucoseMonitor
+//    case uart
     case deviceFirmwareUpgrade
     case zephyrDFU
-    case proximity
-    case homeKit
+//    case proximity
+//    case homeKit
 }
 
 protocol MainRouter {
@@ -64,15 +64,15 @@ class DefaultMainRouter {
     
     private lazy var serviceViewControllers: [ServiceId : UIViewController] = {
         return [
-            .heartRateMonitor : HeartRateMonitorTableViewController(),
-            .bloodPressureMonitoring : BloodPressureTableViewController(),
-            .glucoseMonitoring : GlucoseMonitorViewController(),
-            .continuousGlucoseMonitor : ContinuousGlucoseMonitor(),
+//            .heartRateMonitor : HeartRateMonitorTableViewController(),
+//            .bloodPressureMonitoring : BloodPressureTableViewController(),
+//            .glucoseMonitoring : GlucoseMonitorViewController(),
+//            .continuousGlucoseMonitor : ContinuousGlucoseMonitor(),
             .healthThermometer : HealthTermometerTableViewController(),
-            .cyclingSensor : CyclingTableViewController(),
-            .runningSensor : RunningTableViewController(),
-            .proximity : ProximityViewController(),
-            .uart : UARTTabBarController()
+//            .cyclingSensor : CyclingTableViewController(),
+//            .runningSensor : RunningTableViewController(),
+//            .proximity : ProximityViewController(),
+//            .uart : UARTTabBarController()
             ].mapValues { UINavigationController.nordicBranded(rootViewController: $0) }
         .merging([
             .deviceFirmwareUpgrade : dfuRouter.initialState(),

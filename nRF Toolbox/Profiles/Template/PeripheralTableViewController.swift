@@ -37,14 +37,19 @@ extension PeripheralDescription.Service {
     static let battery = PeripheralDescription.Service(uuid: CBUUID.Service.battery, characteristics: [
         PeripheralDescription.Service.Characteristic(uuid: CBUUID.Characteristics.Battery.batteryLevel, properties: .read)
     ])
+    
+    static let diss = PeripheralDescription.Service(uuid: CBUUID.Service.deviceInformation, characteristics: [
+        PeripheralDescription.Service.Characteristic(uuid: CBUUID.Characteristics.DeviceInformation.ModelNumberString, properties: .read)
+    ])
 }
 
 class PeripheralTableViewController: PeripheralViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tableView: UITableView!
     private var batterySection = BatterySection(id: .battery)
+    private var modelNumberSection = ModelNumberSection(id: .dis)
 
-    var sections: [Section] { internalSections + [batterySection, disconnectSection] }
+    var sections: [Section] { internalSections + [batterySection, modelNumberSection, disconnectSection] }
     var visibleSections: [Section] { sections.filter { !$0.isHidden } }
     var internalSections: [Section] { [] }
     
@@ -70,7 +75,7 @@ class PeripheralTableViewController: PeripheralViewController, UITableViewDataSo
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Battery")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Dattery")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ActionCell")
         tableView.register(DisclosureTableViewCell.self, forCellReuseIdentifier: "DisclosureTableViewCell")
         tableView.register(DetailsTableViewCell.self, forCellReuseIdentifier: "DetailsTableViewCell")
@@ -144,6 +149,8 @@ class PeripheralTableViewController: PeripheralViewController, UITableViewDataSo
         switch characteristic.uuid {
         case CBUUID.Characteristics.Battery.batteryLevel:
             handleBatteryValue(characteristic)
+        case CBUUID.Characteristics.DeviceInformation.ModelNumberString:
+            handleDeviceInformationValue(characteristic)
         default:
             SystemLog(category: .ble, type: .debug).log(message: "Cannot handle update value for characteristic \(characteristic)")
         }
@@ -155,6 +162,17 @@ class PeripheralTableViewController: PeripheralViewController, UITableViewDataSo
         do {
             batterySection.update(with: try BatteryCharacteristic(with: data))
             reloadSection(id: .battery)            
+        } catch let error {
+            displayErrorAlert(error: error)
+        }
+    }
+    
+    func handleDeviceInformationValue(_ characteristic: CBCharacteristic) {
+        guard let data = characteristic.value, data.count > 0 else { return }
+        do {
+            
+            modelNumberSection.update(with: try ModelNumberCharacteristic(with: data))
+            reloadSection(id: .dis)
         } catch let error {
             displayErrorAlert(error: error)
         }

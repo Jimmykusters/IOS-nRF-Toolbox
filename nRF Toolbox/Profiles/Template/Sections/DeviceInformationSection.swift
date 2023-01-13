@@ -30,18 +30,15 @@
 
 
 
-import Foundation
-import CoreBluetooth
+import UIKit
 
-extension PeripheralDescription {
-    static let healthTemperature = PeripheralDescription(uuid: CBUUID.Profile.healthTemperature, services: [.battery, .measurement, .deviceInformation], mandatoryServices: [CBUUID.Service.healthTemperature], mandatoryCharacteristics: [CBUUID.Characteristics.HealthTemperature.measurement])
+class ModelNumberSection: DetailsTableViewSection<ModelNumberCharacteristic> {
+    override func reset() { }
+    
+    override func update(with characteristic: ModelNumberCharacteristic) {
+        let item = DefaultDetailsTableViewCellModel(title: "Model Number String", value: "\(characteristic.ModelNumberString)")
+        items = [item]
+    }
+    
 }
 
-private extension PeripheralDescription.Service {
-    static let measurement = PeripheralDescription.Service(uuid: CBUUID.Service.healthTemperature, characteristics: [
-        Characteristic(uuid: CBUUID.Characteristics.HealthTemperature.measurement, properties: .notify(true))
-    ])
-    static let deviceInformation = PeripheralDescription.Service(uuid: CBUUID.Service.deviceInformation, characteristics: [
-        Characteristic(uuid: CBUUID.Characteristics.DeviceInformation.ModelNumberString, properties: .notify(true)),
-    ])
-}

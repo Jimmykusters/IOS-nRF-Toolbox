@@ -59,6 +59,7 @@ extension Section {
 
 extension Identifier where Value == Section {
     static let battery: Identifier<Section> = "battery"
+    static let dis: Identifier<Section> = "DeviceInformation"
     static let disconnect: Identifier<Section> = "Disconnect"
     static let bgmReadings: Identifier<Section> = "BGMReadings"
     static let selectionResult: Identifier<Section> = "SelectionResultSection"

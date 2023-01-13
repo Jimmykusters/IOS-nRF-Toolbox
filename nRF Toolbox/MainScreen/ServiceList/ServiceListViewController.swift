@@ -43,7 +43,7 @@ class ServiceListViewController: UITableViewController {
         self.dataProvider = dataProvider
         self.serviceRouter = serviceRouter
         super.init(style: .grouped)
-        navigationItem.title = "nRF Toolbox"
+        navigationItem.title = "Bottle appje"
     }
     
     required init?(coder aDecoder: NSCoder) {
